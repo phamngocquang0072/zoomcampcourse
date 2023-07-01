@@ -1,0 +1,16 @@
+#activate conda
+conda activate zoomcamp
+
+#start prefect
+prefect orion start
+
+#build deployment
+prefect deployment build .\flows\03_etl\parameterized_flow.py:etl_parent_flow -n "Parameterized ETL" 
+
+#make run flow from deployment  UI
+prefect agent start  --work-queue "default"
+
+#run flow from deployment cmd
+prefect deployment run etl-parent-flow/docker-flow --params='{"color":"yellow", "month":[5,6], "year":2021}'
+prefect deployment run etl-parent-flow/docker-flow --params={"colour":"yellow", "month":[5,6], "year":2021}
+
