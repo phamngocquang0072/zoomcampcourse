@@ -54,7 +54,7 @@ def etl_parent_flow(
         etl_wed_to_gcs(year, month, colour)
 
 if __name__ == "__main__":
-    months = [1]
-    year = 2019
+    months = [11]
+    year = 2020
     colour = 'yellow'
     etl_parent_flow(months, year, colour)
